@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import axios from "axios"
 import StarWarsCard from "./StarWarsCard"
-import { Container, Row } from "reactstrap"
+import { Container } from "reactstrap"
 
 export default function StarWarsList() {
     const [chars, setChars] = useState([])
@@ -20,20 +20,18 @@ export default function StarWarsList() {
 
     return (
         <Container>
-            <Row>
-                {chars.map(char => {
-                    return (
-                        <StarWarsCard
-                            key={char.height}
-                            name={char.name}
-                            birth={char.birth_year}
-                            gender={char.gender}
-                            hair={char.hair_color}
-                            eye={char.eye_color}
-                        />
-                    )
-                })}
-            </Row>
+            {chars.map(char => {
+                return (
+                    <StarWarsCard
+                        key={char.height}
+                        name={char.name}
+                        birth={char.birth_year}
+                        gender={char.gender}
+                        hair={char.hair_color}
+                        eye={char.eye_color}
+                    />
+                )
+            })}
         </Container>
     )
 }
